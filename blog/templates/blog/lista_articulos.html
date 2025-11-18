@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f6f9;
+        }
+        header{
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        
+        .articulo {
+            background: #fff;
+            padding: 15px auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            max-width: 700px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .fecha {
+            color: #888;
+            font-size: 0.9em;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Mi blog</h1></header>
+    {% if articulos %}
+        {% for articulo in articulos %}
+            <div class="articulo">
+                <h2>{{ articulo.titulo }}</h2>
+                <p class="fecha">Publicado el {{ articulo.fecha_publicacion }}</p>
+                <p>{{ articulo.contenido }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No hay artículos disponibles.</p>
+    {% endif %}
+</body>
+</html>
